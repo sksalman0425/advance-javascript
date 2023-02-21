@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+      // Regular Function gives access to the calling function (this)
+      // Vs
+      // Arrow function gives access to their defining environment(this)
+
+      // check the example of html in day 26
+      function displayMessage() {
+        return "Hello World";
+      }
+      const f = displayMessage;// this stored entire function but we are not calling function here 
+      //here we adding new key value to f. 
+      f.answer = 43;
+      // here we display entire function but we are not calling function here
+       document.getElementById("demo1").innerHTML = f; 
+       //here we are calling the function
+      document.getElementById("demo2").innerHTML = f()+" "+f.answer;
+    </script>
+  </body>
+</html>
