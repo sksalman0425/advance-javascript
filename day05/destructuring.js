@@ -12,9 +12,9 @@ const obj = {
 
 // const fName = obj.fName;
 // const lName = obj.lName;
-// This is knwon as destructuring of object
+// This is knwon as destructuring of object. here we are creating local variable and we get those variable which are needed.
 const { fName, lName } = obj; // here we have taken only two properties of object into variables.
-const { PI, E, SQRT2 } = Math; // here we have taken only three properties of Math lib into variables.
+const { PI, E, SQRT2 } = Math; // here we have taken only three properties of Math object into variables.
 // Remember here variable name must be same as property name.
 console.log(PI);
 console.log(E);
@@ -60,3 +60,4 @@ const x = {
   draw: { diameter: 8 }, // obj inside obj
 };
 console.log(circleArea(x)); // here we are passing object in arg
+
