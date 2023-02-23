@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API using XMLHttpRequest</title>
+  </head>
+  <body>
+    <img id="avatar" src="" alt="Image url" />
+    <p id="demo"></p>
+    <!-- <img id="avatar2" src="" alt="Image url" />
+    <p id="demo2"></p> -->
+    <script>
+      //   let request = new XMLHttpRequest(); //here new object is created from XMLHttpRequest class
+      //   request.open("GET", "https://api.github.com/users/sksalman0425");
+      //   request.send();
+      //   //onload is inbuilt method, here we are overriding it by arrow function.
+      //   request.onload = () => {
+      //     console.log("request", request);
+      //     //JSON.parse() ..it convert string into json object.
+
+      //     //console.log(request, request.status, request.response);// do it first then write code.
+
+      //     if (request.status === 200) {
+      //       const jsonData = JSON.parse(request.response);//we have taken response object in jsonData variable
+      //       console.log("jsonData", jsonData);
+      //       document.getElementById("demo").innerHTML = jsonData.name;
+      //       document.getElementById("avatar").src = jsonData.avatar_url;//avatar-url is property present in the response
+      //     } else {
+      //       document.getElementById(
+      //         "demo"
+      //       ).innerHTML = `Error Occured with status ${request.status} :: ${request.statusText}`;
+      //     }
+      //   };
+
+      //   fetch("url").then((response)=>{
+      //     console.log(response);
+      //   })
+      // here we can take any name instead of response and here we get inbuilt .json() method which return data in json format.
+      // you can take any variable name instead of jsondata or data or any name
+      //
+      fetch("https://api.github.com/users/sksalman0425").then((response) => {
+        console.log("response data", response);
+        if (response.status === 200) {
+          response.json().then((jsonData) => {
+            console.log("jsondata", jsonData);
+            document.getElementById("demo").innerHTML = jsonData.name;
+            document.getElementById("avatar").src = jsonData.avatar_url;
+
+          });
+        } else {
+          document.getElementById(
+            "demo"
+          ).innerHTML = `Error Occured with status ${request.status} :: ${request.statusText}`;
+        }
+      });
+    </script>
+  </body>
+</html>
