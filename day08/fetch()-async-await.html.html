@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch()-async-await</title>
+  </head>
+  <body>
+    <div id="workingArea"></div>
+    <script>
+        //async and await are always used together with function.
+      async function fetchGitHubUserDetails(){
+          const workingAreaElement=document.getElementById("workingArea");
+          for (let index = 1; index < 10; index++) {
+           const response= await fetch("https://dummyjson.com/products/" + index);
+              console.log("response data::", response);
+              if(response.status===200){
+                  const jsonData= await response.json();
+                  //dyanamically img tag, it's id and src attribute  is created using createElement()
+                  var imgElement=document.createElement("img");
+                  imgElement.id="avatar"+index;
+                  imgElement.src=jsonData.thumbnail;
+                   //dyanamically p tag, it's id and innerHTML attribute  is created using createElement()
+                  var pElement=document.createElement("p");
+                  pElement.id="demo"+index;
+                  pElement.innerHTML=jsonData.title;
+                  //both img and p tag append in the workingAreaElement
+                  workingAreaElement.append(imgElement, pElement);
+                  // document.getElementById("demo0").innerHTML = jsonData.title;
+                  // document.getElementById("avatar0").src = jsonData.thumbnail;
+                  console.log(jsonData);
+              }
+
+          }
+      }
+      fetchGitHubUserDetails();
+    </script>
+  </body>
+</html>

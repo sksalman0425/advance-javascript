@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API using XMLHttpRequest</title>
+  </head>
+  <body>
+    <img id="avatar" src="" alt="Image url" />
+    <p id="demo"></p>
+ 
+    <script>
+        let request = new XMLHttpRequest(); //here new object is created from XMLHttpRequest class
+        request.open("GET", "https://api.github.com/users/sksalman0425");
+        request.send();//we are making get request that's why send() is empty. for other request we pass object containing user detail in it.
+        //onload is inbuilt method, here we are overriding it by arrow function.
+        request.onload = () => {
+          console.log("request", request);
+          //JSON.parse() ..it convert string into json object.
+
+          //console.log(request, request.status, request.response);// do it first then write code.
+
+          if (request.status === 200) {
+            const jsonData = JSON.parse(request.response);//we have taken response object in jsonData variable
+            console.log("jsonData", jsonData);
+            document.getElementById("demo").innerHTML = jsonData.name;
+            document.getElementById("avatar").src = jsonData.avatar_url;//avatar-url is property present in the response
+          } else {
+            document.getElementById(
+              "demo"
+            ).innerHTML = `Error Occured with status ${request.status} :: ${request.statusText}`;
+          }
+        };
+
+
+    </script>
+  </body>
+</html>
