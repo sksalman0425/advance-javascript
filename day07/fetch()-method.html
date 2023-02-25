@@ -31,10 +31,10 @@
             if (response.status === 200) {
               response.json().then((jsonData) => {
                 console.log("jsondata", jsonData);
-                document.getElementById("demo" + index).innerHTML =
-                  jsonData.name;
-                document.getElementById("avatar" + index).src =
-                  jsonData.avatar_url;
+                document.getElementById("demo" + index).innerHTML = jsonData.name;
+                 
+                document.getElementById("avatar" + index).src = jsonData.avatar_url;
+                 
               });
             } else {
               document.getElementById(
