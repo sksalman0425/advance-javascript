@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise, async and await</title>
+  </head>
+  <body>
+    <script>
+        // here if we are not using  async and await then it executing sequentially with time delay
+        // here if we are using async and await then it execute asynchronouslly without time delay
+        // fetch() have in built promise object and hence it return promise.
+        // for error handling in async and await we can use normal try{}catch(){} block/method 
+        async function fetchData(){
+
+            try {
+                //to execute catch block just give false api link in fetch().
+                const response1=  await fetch("http://dummyjson.com/products/1");
+                console.log("success Resopnse1 of async and await",response1);
+            } catch (reject1) {
+                console.log("failed response i.e. reject1 of async and await",reject1);
+            }
+
+           
+        }
+        fetchData();
+        console.log("Azhar Academy");
+     //-------------------------------------------- another example -----------------------------------
+        //here we are manually creating promise object in the function
+      function myFunction() {
+        return new Promise((resolve2, reject2) => {
+            let x=1;
+            // let x=0;
+            if(x===0){
+                resolve2(" Hello world!!!");
+            }else{
+                reject2(" Error!!!"); 
+            }
+           
+        });
+      }
+      //for executing promise we have to call the myFunction()
+      //here .then() takes two arguments one for success and 2nd for failure. both arguments are optional
+      // you can use any name for response and reject as success/resolve and failure or any other name.
+      // in manually creating promise we have to use it's inbuilt .catch() for error handling
+      myFunction().then((response)=>{
+        console.log(" success response from custom promise",response);
+       
+      }).catch((reject)=>{
+        console.log("failed response from custom promise",reject);
+      })
+      console.log("Hiiii");
+    </script>
+  </body>
+</html>
