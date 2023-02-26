@@ -7,9 +7,9 @@
     <title>API using XMLHttpRequest</title>
   </head>
   <body>
-    <img id="avatar" src="" alt="Image url" />
+    <img id="avatar0" src="" alt="Image url" />
     <p id="demo0"></p>
-    <img id="avatar2" src="" alt="Image url" />
+    <img id="avatar1" src="" alt="Image url" />
     <p id="demo1"></p>
     <script>
       //   fetch("url").then((response)=>{
@@ -24,7 +24,7 @@
         //here in fetch() if we are not passing 2nd arg which is object, that means bydefault it is GET request.
         //for other request we have to take user details in object and pass it in fetch() at the 2 nd place.
         //here we are getting single single user detail, you can get all the user if api link allows you.
-        // some api link gives you all user details.
+        // some api link gives you all user details in single request.
         fetch(`https://api.github.com/users/${usersVariable[index]}`).then(
           (response) => {
             console.log("response data", response);

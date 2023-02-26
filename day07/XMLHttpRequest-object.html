@@ -14,7 +14,7 @@
         let request = new XMLHttpRequest(); //here new object is created from XMLHttpRequest class
         request.open("GET", "https://api.github.com/users/sksalman0425");
         request.send();//we are making get request that's why send() is empty. for other request we pass object containing user detail in it.
-        //onload is inbuilt method, here we are overriding it by arrow function.
+        //onload is inbuilt method, here we are overriding parent method  by child method i.e. arrow function.
         request.onload = () => {
           console.log("request", request);
           //JSON.parse() ..it convert string into json object.

@@ -7,9 +7,11 @@
     <title>Promise, async and await</title>
   </head>
   <body>
+    <img id="avatar" src="" alt="Image url" />
+    <p id="demo"></p>
     <script>
-        // here if we are not using  async and await then it executing sequentially with time delay
-        // here if we are using async and await then it execute asynchronouslly without time delay
+        // here if we are not using  async and await then it executing sequentially with some time delay
+        // here if we are using async and await then it execute asynchronouslly without any time delay
         // fetch() have in built promise object and hence it return promise.
         // for error handling in async and await we can use normal try{}catch(){} block/method 
         async function fetchData(){
@@ -17,7 +19,12 @@
             try {
                 //to execute catch block just give false api link in fetch().
                 const response1=  await fetch("http://dummyjson.com/products/1");
+                // const jsonData=await response1.json(); //if raw data comes then convert it into json data.
                 console.log("success Resopnse1 of async and await",response1);
+                const jsonData= await response1.json(); //convert raw data into json data and store in jsonData object        
+                document.getElementById("demo").innerHTML = jsonData.title;//title and thumbnail are attributes of response object
+                document.getElementById("avatar").src = jsonData.thumbnail;
+
             } catch (reject1) {
                 console.log("failed response i.e. reject1 of async and await",reject1);
             }
@@ -43,7 +50,7 @@
       //for executing promise we have to call the myFunction()
       //here .then() takes two arguments one for success and 2nd for failure. both arguments are optional
       // you can use any name for response and reject as success/resolve and failure or any other name.
-      // in manually creating promise we have to use it's inbuilt .catch() for error handling
+      // in manually creating promise we must have to use it's inbuilt .catch() for error handling
       myFunction().then((response)=>{
         console.log(" success response from custom promise",response);
        

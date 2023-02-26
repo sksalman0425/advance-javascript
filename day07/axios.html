@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axios request </title>
+    <!-- online link of axios library -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <img id="avatar0" src="" alt="Image url" />
+    <img id="avatar" src="" alt="Image url" />
     <p id="demo"></p>
    
     <script>
-        //fake API link => "https://dummyjson.com/products/1" for unlimited times user access
+        //fake API link => "https://dummyjson.com/products/1" for unlimited times user access to api
         axios.get("https://api.github.com/users/sksalman0425").then((response)=>{
           console.log("response",response);
 
